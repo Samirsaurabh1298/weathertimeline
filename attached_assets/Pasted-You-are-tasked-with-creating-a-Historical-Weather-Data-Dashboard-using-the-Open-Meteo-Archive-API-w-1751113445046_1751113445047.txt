@@ -1,0 +1,55 @@
+You are tasked with creating a Historical Weather Data Dashboard using the Open-Meteo Archive API, which provides historical time-series data for weather parameters like temperature, precipitation, and wind speed.
+
+The dashboard should include:
+Two Pages:
+Overview Page: Visualize daily historical weather data with interactive widgets. (daily temperature, precipitation sum, max wind speed)
+Detailed Insights Page: Drill down to get more detailed information (hourly parameters). Data will have hourly granularity but the x axis will auto adjust the markings based on the date range selected.
+Charts:
+Temperature Trends (Line Chart): Show daily average, minimum, and maximum temperatures over the selected date range
+Precipitation (Bar Chart): Show daily precipitation sum over the selected date range.
+Wind Speed (Line Chart): Show daily Maximum wind speed over the selected date range
+All Parameters (Line Chart): This is to be placed in details insight page which will be drill down to any of the 3 charts. It will show many metrics from hourly API parameters:
+Temperature
+Relative Humidity
+Apparent Temperature
+Precipitation
+Sealevel Pressure
+Wind Speed 10m
+
+Functional Requirements:
+UI Features:
+Calendar Widget: Allow users to select a date range (up to 3 months at a time).
+Filters:
+Calendar: A calendar widget to select the date range for the data.
+Location: A dropdown of cities/countries to retrieve data for different locations. 
+Pick 6 lat-longs from different city/countries and keep the mapping as static data in code. You will create 6 filter options (UI will show city/countries dropdown which will be converted to Lat-long to call the API)
+Fields: Additionally, in the Details Insight Page
+Dynamic Charts:
+Overview Page: 3 charts: description given above (Don’t use the Open-Meteo UI)
+Line Chart 1: Temperature trends (mean, max, min) over the date range.
+Bar Chart: Daily precipitation Sum.
+Line Chart 2: Maximum wind speed over the date range.
+
+
+Details Inside page: When either of the 3 charts is clicked, it will navigate to this page (how you want to navigate is upto you). The “All Fields” chart can show maximum 2 parameters at a time (2 axis). So user can select maximum 2 of the 6 parameters at a time from “Fields” filter dropdown. It will have calendar and location filters also.
+Note: Chart will have 1 or 2 Y axes based on filter selection
+Line Chart 3: Selected Parameters’ trends over the date range.
+
+
+API Integration:
+Use the Open-Meteo Archive API to fetch historical weather data:
+Include parameters:
+Latitude and longitude for location.
+Start and end date for date range.
+Weather parameters to retrieve (temperature, precipitation, wind speed, humidity).
+Note: Daily parameters for overview page and hourly parameters for detailed insight page
+
+
+Responsive Design:
+Ensure the dashboard is usable in multiple screen size (tab to large monitor), with charts and widgets adapting to smaller screens.
+Bonus: Few Unit Testing demonstrations
+Evaluation:
+Code quality
+Code organization
+Dashboard Quality
+
