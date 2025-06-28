@@ -14,10 +14,10 @@ const PARAMETERS = [
 
 export default function DetailedInsights() {
   const [primaryParameter, setPrimaryParameter] = useState("temperature_2m");
-  const [secondaryParameter, setSecondaryParameter] = useState("");
+  const [secondaryParameter, setSecondaryParameter] = useState("none");
 
   const primaryLabel = PARAMETERS.find(p => p.value === primaryParameter)?.label || "";
-  const secondaryLabel = PARAMETERS.find(p => p.value === secondaryParameter)?.label || "";
+  const secondaryLabel = secondaryParameter !== "none" ? PARAMETERS.find(p => p.value === secondaryParameter)?.label || "" : "";
 
   return (
     <div>
@@ -55,7 +55,7 @@ export default function DetailedInsights() {
                   <SelectValue placeholder="None" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">None</SelectItem>
+                  <SelectItem value="none">None</SelectItem>
                   {PARAMETERS.filter(p => p.value !== primaryParameter).map((param) => (
                     <SelectItem key={param.value} value={param.value}>
                       {param.label}
@@ -77,7 +77,7 @@ export default function DetailedInsights() {
                 <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
                 <span className="text-slate-600">{primaryLabel}</span>
               </div>
-              {secondaryParameter && (
+              {secondaryParameter !== "none" && (
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   <span className="text-slate-600">{secondaryLabel}</span>
@@ -90,7 +90,7 @@ export default function DetailedInsights() {
           <div className="h-96">
             <DetailedChart 
               primaryParameter={primaryParameter}
-              secondaryParameter={secondaryParameter}
+              secondaryParameter={secondaryParameter === "none" ? undefined : secondaryParameter}
             />
           </div>
         </CardContent>
