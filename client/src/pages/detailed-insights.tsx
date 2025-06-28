@@ -22,7 +22,7 @@ export default function DetailedInsights() {
   return (
     <div>
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-slate-900 mb-2">Detailed Insights</h2>
+        <h2 className="text-2xl font-semibold text-slate-900 mb-2">Drilldown</h2>
         <p className="text-slate-600">Hourly weather parameters with customizable data visualization</p>
       </div>
 

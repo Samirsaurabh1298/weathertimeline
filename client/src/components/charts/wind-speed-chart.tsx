@@ -56,7 +56,7 @@ export default function WindSpeedChart() {
   })) || [];
 
   const handleClick = () => {
-    setLocation("/detailed-insights");
+    setLocation("/");
   };
 
   return (

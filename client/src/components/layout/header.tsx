@@ -18,23 +18,23 @@ export default function Header() {
           <Link href="/">
             <button
               className={`px-3 py-2 text-sm font-medium border-b-2 transition-colors ${
-                location === "/" || location === "/overview"
-                  ? "border-primary text-primary"
-                  : "border-transparent text-slate-500 hover:text-slate-700"
-              }`}
-            >
-              Overview
-            </button>
-          </Link>
-          <Link href="/detailed-insights">
-            <button
-              className={`px-3 py-2 text-sm font-medium border-b-2 transition-colors ${
-                location === "/detailed-insights"
+                location === "/" || location === "/detailed-insights"
                   ? "border-primary text-primary"
                   : "border-transparent text-slate-500 hover:text-slate-700"
               }`}
             >
               Drilldown
+            </button>
+          </Link>
+          <Link href="/overview">
+            <button
+              className={`px-3 py-2 text-sm font-medium border-b-2 transition-colors ${
+                location === "/overview"
+                  ? "border-primary text-primary"
+                  : "border-transparent text-slate-500 hover:text-slate-700"
+              }`}
+            >
+              Overview
             </button>
           </Link>
         </nav>

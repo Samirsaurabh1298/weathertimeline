@@ -58,7 +58,7 @@ export default function TemperatureChart() {
   })) || [];
 
   const handleClick = () => {
-    setLocation("/detailed-insights");
+    setLocation("/");
   };
 
   return (

@@ -16,7 +16,7 @@ function Router() {
       <FilterBar />
       <main className="max-w-7xl mx-auto px-6 py-8">
         <Switch>
-          <Route path="/" component={Overview} />
+          <Route path="/" component={DetailedInsights} />
           <Route path="/detailed-insights" component={DetailedInsights} />
           <Route path="/overview" component={Overview} />
         </Switch>

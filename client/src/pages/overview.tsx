@@ -6,7 +6,7 @@ export default function Overview() {
   return (
     <div>
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-slate-900 mb-2">Weather Overview</h2>
+        <h2 className="text-2xl font-semibold text-slate-900 mb-2">Overview</h2>
         <p className="text-slate-600">Historical weather data for the selected period and location</p>
       </div>
 

@@ -56,7 +56,7 @@ export default function PrecipitationChart() {
   })) || [];
 
   const handleClick = () => {
-    setLocation("/detailed-insights");
+    setLocation("/");
   };
 
   return (
