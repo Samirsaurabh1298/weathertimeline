@@ -8,7 +8,7 @@ const PARAMETERS = [
   { value: "relative_humidity_2m", label: "Relative Humidity (%)" },
   { value: "apparent_temperature", label: "Apparent Temperature (°C)" },
   { value: "precipitation", label: "Precipitation (mm)" },
-  { value: "sea_level_pressure", label: "Sea Level Pressure (hPa)" },
+  { value: "surface_pressure", label: "Surface Pressure (hPa)" },
   { value: "wind_speed_10m", label: "Wind Speed 10m (km/h)" },
 ];
 

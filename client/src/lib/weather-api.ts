@@ -15,7 +15,7 @@ export interface WeatherDataResponse {
     relative_humidity_2m: number[];
     apparent_temperature: number[];
     precipitation: number[];
-    sea_level_pressure: number[];
+    surface_pressure: number[];
     wind_speed_10m: number[];
   };
 }
@@ -51,7 +51,7 @@ export async function fetchWeatherData(
       'relative_humidity_2m',
       'apparent_temperature',
       'precipitation',
-      'sea_level_pressure',
+      'surface_pressure',
       'wind_speed_10m'
     ].join(','));
   }

@@ -19,8 +19,8 @@ export const useAppContext = () => {
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [dateRange, setDateRange] = useState({
-    from: new Date("2025-01-01"),
-    to: new Date("2025-01-19"),
+    from: new Date("2024-01-01"),
+    to: new Date("2024-01-19"),
   });
   const [location, setLocation] = useState("nyc");
 
