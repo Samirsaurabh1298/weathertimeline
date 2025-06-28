@@ -26,75 +26,35 @@ export default function DetailedInsights() {
         <p className="text-slate-600">Hourly weather parameters with customizable data visualization</p>
       </div>
 
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle>Select Parameters (Max 2)</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Primary Parameter:</label>
-              <Select value={primaryParameter} onValueChange={setPrimaryParameter}>
-                <SelectTrigger className="w-full">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {PARAMETERS.map((param) => (
-                    <SelectItem key={param.value} value={param.value}>
-                      {param.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+      <div className="bg-white rounded-lg border border-slate-200 p-6">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center space-x-2">
+            <div className="w-5 h-5 bg-amber-500 rounded flex items-center justify-center">
+              <div className="w-2 h-2 bg-white rounded-full"></div>
             </div>
-
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Secondary Parameter (Optional):</label>
-              <Select value={secondaryParameter} onValueChange={setSecondaryParameter}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="None" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="none">None</SelectItem>
-                  {PARAMETERS.filter(p => p.value !== primaryParameter).map((param) => (
-                    <SelectItem key={param.value} value={param.value}>
-                      {param.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+            <h3 className="text-lg font-medium text-slate-900">{primaryLabel?.replace(/\s*\([^)]*\)/, '') || "Temperature"}</h3>
           </div>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle>Parameter Trends</CardTitle>
-            <div className="flex space-x-4 text-sm">
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <span className="text-slate-600">{primaryLabel}</span>
-              </div>
-              {secondaryParameter !== "none" && (
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-slate-600">{secondaryLabel}</span>
-                </div>
-              )}
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="h-96">
-            <DetailedChart 
-              primaryParameter={primaryParameter}
-              secondaryParameter={secondaryParameter === "none" ? undefined : secondaryParameter}
-            />
-          </div>
-        </CardContent>
-      </Card>
+          <Select value={primaryParameter} onValueChange={setPrimaryParameter}>
+            <SelectTrigger className="w-48">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {PARAMETERS.map((param) => (
+                <SelectItem key={param.value} value={param.value}>
+                  {param.label.replace(/\s*\([^)]*\)/, '')}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        
+        <div className="h-96">
+          <DetailedChart 
+            primaryParameter={primaryParameter}
+            secondaryParameter={secondaryParameter === "none" ? undefined : secondaryParameter}
+          />
+        </div>
+      </div>
     </div>
   );
 }

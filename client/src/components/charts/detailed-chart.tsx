@@ -46,33 +46,48 @@ export default function DetailedChart({ primaryParameter, secondaryParameter }: 
           day: 'numeric',
           hour: 'numeric'
         }),
-        primary: data.hourly[primaryParameter]?.[actualIndex] || 0,
-        secondary: secondaryParameter ? data.hourly[secondaryParameter]?.[actualIndex] || 0 : null,
+        primary: (data.hourly as any)[primaryParameter]?.[actualIndex] || 0,
+        secondary: secondaryParameter ? (data.hourly as any)[secondaryParameter]?.[actualIndex] || 0 : null,
       };
     });
 
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={chartData}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+      <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" />
         <XAxis 
           dataKey="time" 
-          tick={{ fontSize: 11 }}
+          tick={{ fontSize: 12, fill: '#64748B' }}
+          tickLine={{ stroke: '#CBD5E1' }}
+          axisLine={{ stroke: '#CBD5E1' }}
           interval="preserveStartEnd"
         />
-        <YAxis yAxisId="left" orientation="left" tick={{ fontSize: 12 }} />
+        <YAxis 
+          yAxisId="left" 
+          orientation="left" 
+          tick={{ fontSize: 12, fill: '#64748B' }}
+          tickLine={{ stroke: '#CBD5E1' }}
+          axisLine={{ stroke: '#CBD5E1' }}
+          domain={['dataMin - 2', 'dataMax + 2']}
+        />
         {secondaryParameter && (
-          <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
+          <YAxis 
+            yAxisId="right" 
+            orientation="right" 
+            tick={{ fontSize: 12, fill: '#64748B' }}
+            tickLine={{ stroke: '#CBD5E1' }}
+            axisLine={{ stroke: '#CBD5E1' }}
+            domain={['dataMin - 2', 'dataMax + 2']}
+          />
         )}
-        <Legend />
         <Line
           yAxisId="left"
           type="monotone"
           dataKey="primary"
-          stroke="#3B82F6"
-          strokeWidth={2}
-          dot={{ fill: "#3B82F6", strokeWidth: 2, r: 3 }}
-          name="Primary Parameter"
+          stroke="#F59E0B"
+          strokeWidth={3}
+          dot={false}
+          activeDot={{ r: 6, fill: "#F59E0B" }}
         />
         {secondaryParameter && (
           <Line
@@ -80,9 +95,9 @@ export default function DetailedChart({ primaryParameter, secondaryParameter }: 
             type="monotone"
             dataKey="secondary"
             stroke="#10B981"
-            strokeWidth={2}
-            dot={{ fill: "#10B981", strokeWidth: 2, r: 3 }}
-            name="Secondary Parameter"
+            strokeWidth={3}
+            dot={false}
+            activeDot={{ r: 6, fill: "#10B981" }}
           />
         )}
       </LineChart>
