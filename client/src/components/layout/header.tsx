@@ -34,7 +34,7 @@ export default function Header() {
                   : "border-transparent text-slate-500 hover:text-slate-700"
               }`}
             >
-              Detailed Insights
+              Drilldown
             </button>
           </Link>
         </nav>
