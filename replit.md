@@ -90,7 +90,8 @@ This is a full-stack weather analytics dashboard built with React and Express, d
 - **Migrations**: Drizzle-kit for schema management
 
 ## Changelog
-- June 28, 2025. Initial setup
+- June 28, 2025: Initial setup
+- June 28, 2025: Fixed page structure to match design - swapped Drilldown (single chart) as first page and Overview (3 charts) as second page
 
 ## User Preferences
 
